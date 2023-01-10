@@ -73,6 +73,12 @@ RCT_EXPORT_MODULE()
     return commandToSend;
 }
 
+
+RCT_EXPORT_METHOD(initialize:(NSString*)apiKey appId:(NSString*)appId) {
+    [IntercomModule initialize:apiKey withAppId:appId];
+};
+
+
 RCT_EXPORT_METHOD(sendTokenToIntercom:(NSString *)token
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
