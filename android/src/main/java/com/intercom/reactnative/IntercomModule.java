@@ -493,7 +493,8 @@ public class IntercomModule extends ReactContextBaseJavaModule {
       promise.reject(IntercomErrorCodes.SET_BOTTOM_PADDING, err.toString());
     }
   }
-
+  
+  @ReactMethod
   public static synchronized void initialize(Application application, String apiKey, String appId) {
     String sdkVersion = BuildConfig.INTERCOM_VERSION_NAME;
     ReactNativeHeaderInterceptor.setReactNativeVersion(application.getApplicationContext(), sdkVersion);
