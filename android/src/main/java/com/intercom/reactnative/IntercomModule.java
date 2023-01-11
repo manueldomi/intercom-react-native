@@ -80,6 +80,12 @@ public class IntercomModule extends ReactContextBaseJavaModule {
     intercomPushClient.sendTokenToIntercom(application, token);
     Log.d(NAME, "sendTokenToIntercom");
   }
+  
+  
+   @ReactMethod
+    public void initialize(String apiKey, String appId) {
+        Intercom.initialize(getCurrentActivity().getApplication(), apiKey, appId);
+    }
 
   @ReactMethod
   public void handlePushMessage(Promise promise) {
@@ -494,7 +500,6 @@ public class IntercomModule extends ReactContextBaseJavaModule {
     }
   }
   
-  @ReactMethod
   public static synchronized void initialize(Application application, String apiKey, String appId) {
     String sdkVersion = BuildConfig.INTERCOM_VERSION_NAME;
     ReactNativeHeaderInterceptor.setReactNativeVersion(application.getApplicationContext(), sdkVersion);
